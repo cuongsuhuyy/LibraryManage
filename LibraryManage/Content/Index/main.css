@@ -1,0 +1,51 @@
+﻿.index-banner {
+    float: left;
+    width: 100%;
+    background-image: url(https://localhost:44335/Images/inner-banner.png);
+    background-size: cover;
+}
+
+.logo {
+    float: left;
+}
+
+.font-color-banner {
+    color: #98AFC7 !important;
+}
+
+.banner-search {
+    float: left;
+    width: 100%;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-top: solid 3px;
+    border-color: #32B5F3;
+}
+
+.font-color-white {
+    color: white;
+    font-size: 22px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0px;
+}
+
+.input {
+    height: 44px;
+    border: none;
+    width: 100%;
+    padding: 6px 10px;
+    color: #CCC;
+    max-width: 100%;
+}
+
+.button {
+    border: 0;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 30px 11px;
+    text-transform: uppercase;
+    vertical-align: bottom;
+    background-color: #11c8de;
+}
