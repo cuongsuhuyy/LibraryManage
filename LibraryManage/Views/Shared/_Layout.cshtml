@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Icon/open-iconic-master/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="/open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -43,20 +45,68 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer class="footer-background-color">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <div class="widget widget-text">
                             <h2>ABOUT US</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                            <ul class="widget-text">
+                                <li>
+                                    <i class="glyphicon-chevron-down col-md-2"></i>
+                                    <p class="col">SALA, District 2</p>
+                                </li>
+                                <li>
+                                    <i class="glyphicon-chevron-left col-md-2"></i>
+                                    <p class="col">0909123456</p>
+                                </li>
+                                <li>
+                                    <i class="glyphicon-chevron-up col-md-2"></i>
+                                    <p class="col">infobookstore@gmail.com</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-3"></div>
+                    <div class="col-md-4">
+                        <div class="widget widget-text">
+                            <h2>INFORMATION</h2>
+                            <ul class="widget-text">
+                                <li class="">
+                                    <p class="col-md-9">SALA, District 2</p>
+                                    <i class="glyphicon-chevron-right col"></i>
+                                </li>
+                                <li class="border-top">
+                                    <p class="col-md-9">SALA, District 2</p>
+                                    <i class="glyphicon-chevron-right col"></i>
+                                </li>
+                                <li class="border-top">
+                                    <p class="col-md-9">SALA, District 2</p>
+                                    <i class="glyphicon-chevron-right col"></i>
+                                </li>
+                                <li class="border-top">
+                                    <p class="col-md-9">SALA, District 2</p>
+                                    <i class="glyphicon-chevron-right col"></i>
+                                </li>
+                                <li class="border-top">
+                                    <p class="col-md-9">SALA, District 2</p>
+                                    <i class="glyphicon-chevron-right col"></i>
+                                </li>
+                                <li class="border-top">
+                                    <p class="col-md-9">SALA, District 2</p>
+                                    <i class="glyphicon-chevron-right col"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="widget widget-text">
+                            <h2>NEWSLETTER</h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Applicationnn</p>
         </footer>
     </div>
 
