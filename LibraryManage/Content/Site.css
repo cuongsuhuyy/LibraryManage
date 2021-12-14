@@ -45,10 +45,41 @@ textarea {
     list-style: none;
 }
 
+.widget-new-letter {
+    float: left;
+    width: 100%;
+    border-radius: 0px;
+    height: 41px;
+    background-color: #fff;
+    padding: 6px 10px;
+}
+
 .footer-background-color {
     background-color: #000;
 }
 
 .border-top {
-    border-top: solid 1px rgba(255,255,255,0.2);
+    border-top: solid 3px rgba(255,255,255,0.2);
 }
+
+.padding-left {
+    padding-left: 0px;
+}
+
+.button-footer {
+    float: left;
+    font-weight: bold;
+    position: static;
+    padding: 9px 15px 10px 15px px;
+    line-height: 18px;
+    text-transform: uppercase;
+    background-color: #32B5F3;
+    color: #fff;
+    font-size: 12px;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    border-radius: 0;
+}
+
+
