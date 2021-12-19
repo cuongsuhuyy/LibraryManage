@@ -1,9 +1,11 @@
 ﻿using LibraryManage.DatabaseAccess;
 using LibraryManage.Models;
-using System;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace LibraryManage.Controllers
@@ -14,20 +16,9 @@ namespace LibraryManage.Controllers
         public ActionResult Index()
         {
             LibraryDBEntities db = new LibraryDBEntities();
+            var account = db.Accounts.ToList();
 
-            Account account = db.Accounts.SingleOrDefault(x => x.Username == "TKSUC1HC");
-            AccountModel accountModel = new AccountModel();
-
-            accountModel.Username = account.Username;
-            accountModel.Password = account.Password;
-            accountModel.ID_Users = account.ID_Users;
-            accountModel.First_Name = account.First_Name;
-            accountModel.Last_Name = account.Last_Name;
-            accountModel.Date_of_Birth = account.Date_of_Birth;
-            accountModel.Type = account.Type;
-            accountModel.Notes = account.Notes;
-
-            return View(accountModel);
+            return View(account);
         }
     }
 }
