@@ -11,10 +11,9 @@
 <div class="jumbotron index-banner">
     <h1 class="font-color-banner">WELCOME TO OUR BOOKSTORE</h1>
     <p class="lead font-color-banner">We got all you need. All you have to do is read it</p>
-    @*<p><a href = "https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>*@
     <div class="container">
         <div class="banner-search">
-            @using (Html.BeginForm("Index", "SearchBook"))
+            @using (Html.BeginForm("getSelectedValue", "SearchBook", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 <div class="row">
                     <div class="col-md-2">
@@ -27,16 +26,13 @@
                         <input style="color: black;" class="input" type="text" name="BookTitle" placeholder="Enter Your Title" />
                     </div>
                     <div class="col-md-2">
-                        <div class="dropdown">
-                            <button style="width: 100%;" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Kind Of Book
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a name="Action" onclick="dropdown(this.innerHTML);" href="#">Action</a></li>
-                                <li><a name="Another action" onclick="dropdown(this.innerHTML);" href="#">Another action</a></li>
-                                <li><a name="Something else" onclick="dropdown(this.innerHTML);" href="#">Something else</a></li>
-                            </ul>
-                        </div>
+                        @Html.DropDownList("LogOffTime", new List<SelectListItem>
+                        {
+                           new SelectListItem{ Text="Action", Value = "action"},
+                           new SelectListItem{ Text="Horror", Value = "horror" },
+                           new SelectListItem{ Text="Anime", Value = "anime" }
+                        }, new {@class = "width100 btn btn-secondary"})
+
                     </div>
                     <div class="col-md-2">
                         <button type="submit" style="width: 100%;" class="button">Search</button>
@@ -70,7 +66,15 @@
     </div>
 </div>
 
-function dropdown(val) {
-  var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
-  var aNode = y[0].innerHTML = val + ' <span class="caret"></span>'; // Append
+@section Scripts
+{
+    <script>
+        $(".dropdown-menu li a").click(function () {
+
+            $(".btn:first-child").html($(this).text() + ' <span class="caret"></span>');
+
+        });
+
+    </script>
 }
+

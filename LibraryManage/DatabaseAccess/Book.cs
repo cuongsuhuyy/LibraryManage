@@ -29,6 +29,7 @@ namespace LibraryManage.DatabaseAccess
         public Nullable<System.DateTime> Date_add_to_library { get; set; }
         public string Location_in_library { get; set; }
         public string Notes { get; set; }
+        public string PathImage { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Borrow> Borrows { get; set; }

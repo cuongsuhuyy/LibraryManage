@@ -26,6 +26,7 @@
     <Property Name="Date add to library" Type="datetime" />
     <Property Name="Location in library" Type="nvarchar" MaxLength="50" />
     <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="PathImage" Type="nvarchar(max)" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
