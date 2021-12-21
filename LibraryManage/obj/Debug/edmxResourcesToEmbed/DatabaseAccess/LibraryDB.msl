@@ -18,6 +18,7 @@
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="LibraryDBModel.Book">
         <MappingFragment StoreEntitySet="Book">
+          <ScalarProperty Name="PathImage" ColumnName="PathImage" />
           <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />

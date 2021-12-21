@@ -13,30 +13,28 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="logo">
-                <a href="#">
+                @*<a href="#">
                     <img src="https://localhost:44335/Images/logo.png" />
-                </a>
+                </a>*@
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    @*@Html.ActionLink("Library Manage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                    <img src="https://localhost:44335/Images/logo.png" />*@
+                    @Html.ActionLink("Library Manage", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
             </div>            
             <div class="navbar-collapse collapse">                 
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
-                    <li>@Html.ActionLink("OUR BOOK", "", "")</li>
+                    <li>@Html.ActionLink("OUR BOOK", "Index", "Books")</li>
                     <li>@Html.ActionLink("CONTACT US", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Account", "Index", "Account")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("REGISTER", "Index", "Account")</li>
-                    <li>@Html.ActionLink("LOGIN", "Index", "Account")</li>
+                    <li>@Html.ActionLink("REGISTER", "Register", "RegisterLogin")</li>
+                    <li>@Html.ActionLink("LOGIN", "Login", "RegisterLogin")</li>
                 </ul>
             </div>
         </div>

@@ -6,13 +6,19 @@
 
 <h2>Account</h2>
 
-<ul>
-    <li>@Model.Username<li>
-    <li>@Model.Password</li>
-    <li>@Model.ID_Users</li>
-    <li>@Model.First_Name</li>
-    <li>@Model.Last_Name</li>
-    <li>@Model.Type</li>
-    <li>@Model.Date_of_Birth</li>
-    <li>@Model.Notes</li>
-</ul>
+@{
+    foreach (var data in Model)
+    {
+        <ul>
+            <li>@data.Username<li>
+            <li>@data.Password</li>
+            <li>@data.ID_Users</li>
+            <li>@data.First_Name</li>
+            <li>@data.Last_Name</li>
+            <li>@data.Type</li>
+            <li>@data.Date_of_Birth</li>
+            <li>@data.Notes</li>
+        </ul>
+    }
+
+}

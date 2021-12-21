@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Username" />
@@ -31,6 +31,7 @@
           <Property Name="Date add to library" Type="datetime" />
           <Property Name="Location in library" Type="nvarchar" MaxLength="50" />
           <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="PathImage" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -156,8 +157,7 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
             <End Role="Borrow" EntitySet="Borrow" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -188,6 +188,7 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="Location_in_library" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
+          <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -330,6 +331,7 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LibraryDBModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="PathImage" ColumnName="PathImage" />
                 <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
