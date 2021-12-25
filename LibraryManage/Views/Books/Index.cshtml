@@ -25,18 +25,25 @@
     {
         <tbody>
             <tr>
-                @*<td scope="col">@b.ID_Book</td>*@
-                <td scope="col">@b.Name</td>
-                <td scope="col">@b.Description</td>
-                <td scope="col">@b.Publishing_Year</td>
-                <td scope="col">@b.Publishing_Location</td>
-                <td scope="col">@b.Type</td>
-                @*<td scope="col">@b.Date_add_to_library</td>*@
-                <td scope="col">@b.Location_in_library</td>
-                <td scope="col">
-                    <img style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + b.PathImage)" />
-                </td>
-                <td scope="col">Edit Delete</td>
+                @using (Html.BeginForm("EDIT", "Books"))
+                {
+                    @*<td scope="col">@b.ID_Book</td>*@
+                    <td id="name" scope="col">@b.Name</td>
+                    <td id="description" scope="col">@b.Description</td>
+                    <td scope="col">@b.Publishing_Year</td>
+                    <td scope="col">@b.Publishing_Location</td>
+                    <td scope="col">@b.Type</td>
+                    @*<td scope="col">@b.Date_add_to_library</td>*@
+                    <td scope="col">@b.Location_in_library</td>
+                    <td scope="col">
+                        <img style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + b.PathImage)" />
+                    </td>
+                    <td scope="col">
+                        @Html.ActionLink("EDIT", "EDIT", new { IdBook = b.ID_Book })
+                        @Html.ActionLink("DETAILS", "EDIT", new { id = b.ID_Book })
+                        @Html.ActionLink("DELETE", "EDIT", new { id = b.ID_Book })
+                    </td>
+                }
             </tr>
         </tbody>        
     }

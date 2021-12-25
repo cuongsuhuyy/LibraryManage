@@ -17,5 +17,13 @@ namespace LibraryManage.Controllers
 
             return View(book);
         }
+                
+        public ActionResult EDIT(string IdBook)
+        {
+            LibraryDBEntities db = new LibraryDBEntities();
+            var bookInfor = db.Books.Single(x => x.ID_Book == IdBook);
+
+            return View("BookEdit", bookInfor);
+        }
     }
 }
