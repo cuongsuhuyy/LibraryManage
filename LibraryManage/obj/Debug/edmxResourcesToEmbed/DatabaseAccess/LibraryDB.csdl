@@ -23,11 +23,12 @@
     <Property Name="Publishing_Year" Type="Int32" />
     <Property Name="Publishing_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Date_add_to_library" Type="DateTime" Precision="3" />
+    <Property Name="Date_add_to_library" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
     <Property Name="Location_in_library" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
     <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Quantily" Type="Int32" />
+    <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>

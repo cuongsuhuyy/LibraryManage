@@ -28,10 +28,11 @@
           <Property Name="Publishing Year" Type="int" />
           <Property Name="Publishing Location" Type="nvarchar" MaxLength="50" />
           <Property Name="Type" Type="nvarchar" MaxLength="50" />
-          <Property Name="Date add to library" Type="datetime" />
+          <Property Name="Date add to library" Type="nvarchar" MaxLength="200" />
           <Property Name="Location in library" Type="nvarchar" MaxLength="50" />
           <Property Name="Notes" Type="nvarchar(max)" />
           <Property Name="PathImage" Type="nvarchar(max)" />
+          <Property Name="Quantily" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -184,11 +185,12 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="Publishing_Year" Type="Int32" />
           <Property Name="Publishing_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Date_add_to_library" Type="DateTime" Precision="3" />
+          <Property Name="Date_add_to_library" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
           <Property Name="Location_in_library" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
           <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Quantily" Type="Int32" />
+          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -331,7 +333,6 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <EntitySetMapping Name="Books">
             <EntityTypeMapping TypeName="LibraryDBModel.Book">
               <MappingFragment StoreEntitySet="Book">
-                <ScalarProperty Name="PathImage" ColumnName="PathImage" />
                 <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -341,6 +342,8 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
                 <ScalarProperty Name="Date_add_to_library" ColumnName="Date add to library" />
                 <ScalarProperty Name="Location_in_library" ColumnName="Location in library" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PathImage" ColumnName="PathImage" />
+                <ScalarProperty Name="Quantily" ColumnName="Quantily" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

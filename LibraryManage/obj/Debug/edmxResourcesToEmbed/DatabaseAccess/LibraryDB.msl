@@ -18,7 +18,6 @@
     <EntitySetMapping Name="Books">
       <EntityTypeMapping TypeName="LibraryDBModel.Book">
         <MappingFragment StoreEntitySet="Book">
-          <ScalarProperty Name="PathImage" ColumnName="PathImage" />
           <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -28,6 +27,8 @@
           <ScalarProperty Name="Date_add_to_library" ColumnName="Date add to library" />
           <ScalarProperty Name="Location_in_library" ColumnName="Location in library" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PathImage" ColumnName="PathImage" />
+          <ScalarProperty Name="Quantily" ColumnName="Quantily" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

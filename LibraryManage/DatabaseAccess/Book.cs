@@ -26,10 +26,11 @@ namespace LibraryManage.DatabaseAccess
         public Nullable<int> Publishing_Year { get; set; }
         public string Publishing_Location { get; set; }
         public string Type { get; set; }
-        public Nullable<System.DateTime> Date_add_to_library { get; set; }
+        public string Date_add_to_library { get; set; }
         public string Location_in_library { get; set; }
         public string Notes { get; set; }
         public string PathImage { get; set; }
+        public Nullable<int> Quantily { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Borrow> Borrows { get; set; }

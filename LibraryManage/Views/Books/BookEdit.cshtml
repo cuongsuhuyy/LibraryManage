@@ -1,0 +1,105 @@
+﻿@using LibraryManage.Models
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BookDetails</h2>
+@using (Html.BeginForm("Update", "Books"))
+{
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Name of Book</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Name" placeholder="Name Of Book" value=@Model.Name />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Description" placeholder="Description" value=@Model.Description />
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Publishing Year</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="PublishingYear" placeholder="Publishing Year" value=@Model.Publishing_Year />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Publishing Location</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="PublishingLocation" placeholder="Publishing Location" value=@Model.Publishing_Location />
+            </div>
+        </div>
+    </div>    
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Type" placeholder="Type" value=@Model.Type />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Date add to library</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="date" name="DateAddToLibrary" placeholder="Date add to library" value=@Model.Date_add_to_library />
+            </div>
+        </div>
+    </div>    
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Location in library</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Location" placeholder="Location" value=@Model.Location_in_library />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Notes</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Notes" placeholder="Notes" value=@Model.Notes />
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Path Image</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="PathImage" placeholder="PathImage" value=@Model.PathImage />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Quantily</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Quantily" placeholder="Quantily" value=@Model.Quantily />
+            </div>
+        </div>
+
+        <div style="display: none;">
+            <label class="col-sm-2 col-form-label">Id_Book</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="IdBook" placeholder="IdBook" value=@Model.ID_Book />
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="row">
+        <input type="submit" class="col-md-offset-4 col-md-6 btn btn-primary" value="submit" />
+    </div>
+    
+    
+
+}
+

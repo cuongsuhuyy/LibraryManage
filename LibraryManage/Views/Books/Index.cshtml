@@ -11,6 +11,7 @@
             @*<th scope="col">ID Book</th>*@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
+            <th scope="col">Quantily</th>
             <th scope="col">Publishing Year</th>
             <th scope="col">Publishing Location</th>
             <th scope="col">Type</th>
@@ -25,20 +26,51 @@
     {
         <tbody>
             <tr>
-                @*<td scope="col">@b.ID_Book</td>*@
-                <td scope="col">@b.Name</td>
-                <td scope="col">@b.Description</td>
-                <td scope="col">@b.Publishing_Year</td>
-                <td scope="col">@b.Publishing_Location</td>
-                <td scope="col">@b.Type</td>
-                @*<td scope="col">@b.Date_add_to_library</td>*@
-                <td scope="col">@b.Location_in_library</td>
-                <td scope="col">
-                    <img style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + b.PathImage)" />
-                </td>
-                <td scope="col">Edit Delete</td>
+                @using (Html.BeginForm("EDIT", "Books"))
+                {
+                    @*<td scope="col">@b.ID_Book</td>*@
+                    <td id="name" scope="col">@b.Name</td>
+                    <td id="description" scope="col">@b.Description</td>
+                    <td id="quantily" scope="col">@b.Quantily</td>
+                    <td scope="col">@b.Publishing_Year</td>
+                    <td scope="col">@b.Publishing_Location</td>
+                    <td scope="col">@b.Type</td>
+                    @*<td scope="col">@b.Date_add_to_library</td>*@
+                    <td scope="col">@b.Location_in_library</td>
+                    <td scope="col">
+                        <img style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + b.PathImage)" />
+                    </td>
+                    <td scope="col">
+                        @Html.ActionLink("EDIT", "EDIT", new { IdBook = b.ID_Book }, new { @type = "button", @class = "btn btn-primary" })<br />
+                        @Html.ActionLink("DETAILS", "Detail", new { IdBook = b.ID_Book }, new { @type = "button", @class = "btn btn-info" })<br />
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                            DELETE
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure want to delete?
+                                    </div>
+                                    <div class="modal-footer">
+                                        @Html.ActionLink("NO", "Delete", new { IdBook = b.ID_Book, Flag = "false" }, new { @type="button", @class= "btn btn-warning" })
+                                        @Html.ActionLink("YES", "Delete", new { IdBook = b.ID_Book, Flag = "true" }, new { @type = "button", @class = "btn btn-secondary" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                }
             </tr>
         </tbody>        
     }
 </table>
-
