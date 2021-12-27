@@ -177,6 +177,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Books\BookDetail.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1776,13 +1777,6 @@
     <Content Include="Images\logo.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="DatabaseAccess\LibraryDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>LibraryDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DatabaseAccess\LibraryDB.edmx.diagram">
-      <DependentUpon>LibraryDB.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\Icon\open-iconic-master\bower.json" />
     <Content Include="Content\Icon\open-iconic-master\FONT-LICENSE" />
     <Content Include="Content\Icon\open-iconic-master\font\css\open-iconic-bootstrap.less" />
@@ -3139,6 +3133,13 @@
     <Content Include="Content\Icon\open-iconic-master\webp\zoom-out-6x.webp" />
     <Content Include="Content\Icon\open-iconic-master\webp\zoom-out-8x.webp" />
     <Content Include="Content\Icon\open-iconic-master\webp\zoom-out.webp" />
+    <EntityDeploy Include="DatabaseAccess\LibraryDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LibraryDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="DatabaseAccess\LibraryDB.edmx.diagram">
+      <DependentUpon>LibraryDB.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -3171,6 +3172,8 @@
     <Content Include="Views\RegisterLogin\Logged.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\BookEdit.cshtml" />
+    <Content Include="Views\Books\BookDetail.cshtml" />
+    <Content Include="Views\Books\BookPopupDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

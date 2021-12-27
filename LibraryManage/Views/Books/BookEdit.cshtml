@@ -50,7 +50,7 @@
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Date add to library</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="DateAddToLibrary" placeholder="Date add to library" value=@Model.Date_add_to_library />
+                <input class="form-control" type="date" name="DateAddToLibrary" placeholder="Date add to library" value=@Model.Date_add_to_library />
             </div>
         </div>
     </div>    
@@ -79,12 +79,20 @@
             </div>
         </div>
 
-        <div style="display: none;" class="col-md-6 form-group row">
-            <label class="col-sm-2 col-form-label">Id Book</label>
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Quantily</label>
             <div class="col-sm-10">
-                <input hidden class="form-control" type="text" name="IdBook" placeholder="IdBook" value=@Model.ID_Book />
+                <input class="form-control" type="text" name="Quantily" placeholder="Quantily" value=@Model.Quantily />
             </div>
         </div>
+
+        <div style="display: none;">
+            <label class="col-sm-2 col-form-label">Id_Book</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="IdBook" placeholder="IdBook" value=@Model.ID_Book />
+            </div>
+        </div>
+        
     </div>
     
     <div class="row">

@@ -1,0 +1,22 @@
+﻿body {
+}
+
+.animated {
+    animation-fill-mode: both;
+}
+
+.img-responsive {
+    display: block;
+    width: 100% \9;
+    max-width: 100%;
+    height: auto;
+}
+
+.font-oswald {
+    font-family: 'Oswald', sans-serif;
+}
+
+.margin-top5 {
+    margin-bottom: 0 !important;
+    margin-top: 5% !important;
+}

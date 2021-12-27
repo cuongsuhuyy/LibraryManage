@@ -23,10 +23,11 @@
     <Property Name="Publishing Year" Type="int" />
     <Property Name="Publishing Location" Type="nvarchar" MaxLength="50" />
     <Property Name="Type" Type="nvarchar" MaxLength="50" />
-    <Property Name="Date add to library" Type="datetime" />
+    <Property Name="Date add to library" Type="nvarchar" MaxLength="200" />
     <Property Name="Location in library" Type="nvarchar" MaxLength="50" />
     <Property Name="Notes" Type="nvarchar(max)" />
     <Property Name="PathImage" Type="nvarchar(max)" />
+    <Property Name="Quantily" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
