@@ -3173,7 +3173,7 @@
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\BookEdit.cshtml" />
     <Content Include="Views\Books\BookDetail.cshtml" />
-    <Content Include="Views\Books\BookPopupDelete.cshtml" />
+    <Content Include="Views\Books\BookCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
