@@ -2,7 +2,14 @@
 @using LibraryManage.Models
 @{
     //ViewBag.Title = "About";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (this.Session["UserProfile"] != "")
+    {
+        Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <h2>About</h2>

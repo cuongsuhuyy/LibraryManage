@@ -1,4 +1,9 @@
 ﻿body {
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+}
+
+.font-roboto {
+    font-family: Roboto,Helvetica,Arial,sans-serif;
 }
 
 .animated {
@@ -7,7 +12,7 @@
 
 .img-responsive {
     display: block;
-    width: 100% \9;
+    width: 100%;
     max-width: 100%;
     height: auto;
 }

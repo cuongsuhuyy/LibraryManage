@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using LibraryManage.Models;
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -29,15 +31,19 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
-                    <li>@Html.ActionLink("OUR BOOK", "", "")</li>
+                    <li>@Html.ActionLink("OUR BOOK", "Index", "Books")</li>
                     <li>@Html.ActionLink("CONTACT US", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Account", "Index", "Account")</li>
+                    @if (Session["Type"].Equals("Manager"))
+                    {
+                        <li>@Html.ActionLink("DASHBOARD", "", "")</li>
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#">HELLO @ViewBag.US (@ViewBag.Role)</a>                    
+                        @*<a href="#">HELLO @ViewBag.US (@ViewBag.Role)</a>*@
+                        <a href="#">HELLO @Session["UserProfile"] (@Session["Type"])</a>
                     </li>
-                    <li>@Html.ActionLink("LOG OUT", "Login", "RegisterLogin")</li>
+                    <li>@Html.ActionLink("LOG OUT", "Logout", "RegisterLogin")</li>
                 </ul>
             </div>
         </div>

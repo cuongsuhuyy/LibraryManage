@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using LibraryManage.DatabaseAccess;
+using LibraryManage.Models;
 
 namespace LibraryManage.Controllers
 {
@@ -33,6 +34,8 @@ namespace LibraryManage.Controllers
                 ViewData["Username"] = accountUser.First_Name;
                 ViewBag.US = accountUser.First_Name;
                 ViewBag.Role = accountUser.Type;
+                this.Session.Add("UserProfile", accountUser.First_Name);
+                this.Session.Add("Type", accountUser.Type);
                 return View("Logged");
             }
             else
@@ -41,6 +44,13 @@ namespace LibraryManage.Controllers
             }               
                 
             return View(username);
+        }
+
+        public ActionResult Logout()
+        {
+            this.Session.Add("UserProfile", "");
+            this.Session.Add("Type", "");
+            return View("Login");
         }
     }
 }

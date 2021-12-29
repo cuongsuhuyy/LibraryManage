@@ -32,6 +32,25 @@ namespace LibraryManage.Controllers
             LibraryDBEntities db = new LibraryDBEntities();
             var bookUpdate = db.Books.Single(x => x.ID_Book == IdBook);
 
+            if (IdBook == "")
+                IdBook = "/";
+            if (Name == "")
+                Name = "/";
+            if (Description == "")
+                Description = "/";
+            if (PublishingLocation == "")
+                PublishingLocation = "/";
+            if (Type == "")
+                Type = "/";
+            if (Location == "")
+                Location = "/";
+            if (Notes == "")
+                Notes = "/";
+            if (PathImage == "")
+                PathImage = "/";
+
+            //DateAddToLibrary += " " + DateTime.Now.ToLongTimeString().ToString();
+
             bookUpdate.Name = Name;
             bookUpdate.Description = Description;
             bookUpdate.Publishing_Year = PublishingYear;
@@ -85,8 +104,26 @@ namespace LibraryManage.Controllers
                 return Content("This ID Book have been created");
             }
 
+            if (IdBook == "")
+                IdBook = "/";
+            if (Name == "")
+                Name = "/";
+            if (Description == "")
+                Description = "/";
+            if (PublishingLocation == "")
+                PublishingLocation = "/";
+            if (Type == "")
+                Type = "/";
+            if (Location == "")
+                Location = "/";
+            if (Notes == "")
+                Notes = "/";
+            if (PathImage == "")
+                PathImage = "/";
+
             Book bookInfo = new Book();
 
+            DateAddToLibrary += " " + DateTime.Now.ToLongTimeString().ToString();
             bookInfo.ID_Book = IdBook;
             bookInfo.Name = Name;
             bookInfo.Description = Description;

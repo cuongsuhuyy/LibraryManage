@@ -1,7 +1,14 @@
 ﻿@using LibraryManage.Models
 @{
     ViewBag.Title = "Books";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    if (this.Session["UserProfile"] != "")
+    {
+        Layout = "~/Views/Shared/_AuthLayout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
 }
 
 <h2>Books</h2>
@@ -43,9 +50,9 @@
                         <img alt="Book picture" style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + b.PathImage)" />
                     </td>
                     <td scope="col">
-                        @Html.ActionLink("EDIT", "EDIT", new { IdBook = b.ID_Book }, new { @type = "button", @class = "btn btn-primary" })<br />
-                        @Html.ActionLink("DETAILS", "Detail", new { IdBook = b.ID_Book }, new { @type = "button", @class = "btn btn-info" })<br />
-                        @Html.ActionLink("DELETE", "Delete", new { IdBook = b.ID_Book }, new { onclick = "return confirm('Are sure wants to delete?');", @type = "button", @class = "btn btn-danger" }@*, new { @type = "button", @class = "btn btn-danger" }*@)
+                        @Html.ActionLink("EDIT", "EDIT", new { IdBook = b.ID_Book }, new { @type = "button", @class = "btn btn-primary", @style="width: 100%" })<br />
+                        @Html.ActionLink("DETAILS", "Detail", new { IdBook = b.ID_Book }, new { @type = "button", @class = "btn btn-info", @style = "width: 100%" })<br />
+                        @Html.ActionLink("DELETE", "Delete", new { IdBook = b.ID_Book }, new { onclick = "return confirm('Are sure wants to delete?');", @type = "button", @class = "btn btn-danger", @style = "width: 100%" }@*, new { @type = "button", @class = "btn btn-danger" }*@)
 
                         <!-- Button trigger modal -->
                         @*<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
