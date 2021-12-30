@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "UserEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserEdit</h2>
+
+@using (Html.BeginForm("Update", "Users"))
+{
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Username</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Username" placeholder="Username" value="@Model.Username" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Password" placeholder="Password" value="@Model.Password" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Firstname" placeholder="First Name" value="@Model.First_Name" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Lastname" placeholder="Last Name" value="@Model.Last_Name" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-10">
+                @*<input class="form-control" type="text" name="Type" placeholder="Type" value="@Model.Type" />*@
+
+                @if (this.Session["UserProfile"] != "" && this.Session["Type"].Equals("Manager"))
+                {
+                    @Html.DropDownList("Type", new List<SelectListItem>
+                    {
+                        new SelectListItem{ Text="User", Value = "User"},
+                        new SelectListItem{ Text="Employee", Value = "Employee" },
+                        new SelectListItem { Text = "Manager", Value = "Manager" },
+                    }, new { @class = "width100 btn btn-secondary" })
+                }
+                else
+                {
+                    <input readonly class="form-control" type="text" name="Type" placeholder="Type" value="@Model.Type" />
+                }
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Date of Birth</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Dateofbirth" placeholder="Date of Birth" value="@Model.Date_of_Birth" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Path Image</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Pathimage" placeholder="Path Image" value="@Model.PathImage" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Notes</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Notes" placeholder="Notes" value="@Model.Notes" />
+            </div>
+        </div>
+    </div>
+
+    <div @*style="display: none;"*@ class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">ID User</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="IdUsers" placeholder="IdUsers" value="@Model.ID_Users" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" class="col-md-offset-4 col-md-6 btn btn-primary" value="submit" />
+    </div>
+}

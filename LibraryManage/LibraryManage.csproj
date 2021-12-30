@@ -3169,19 +3169,21 @@
     <Content Include="Views\Account\Index.cshtml" />
     <Content Include="Views\RegisterLogin\Register.cshtml" />
     <Content Include="Views\RegisterLogin\Login.cshtml" />
-    <Content Include="Views\Shared\_AuthLayout.cshtml" />
     <Content Include="Views\RegisterLogin\Logged.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\BookEdit.cshtml" />
     <Content Include="Views\Books\BookDetail.cshtml" />
     <Content Include="Views\Books\BookCreate.cshtml" />
+    <Content Include="Views\Users\UserAccount.cshtml" />
+    <Content Include="Views\Users\UserCreate.cshtml" />
+    <Content Include="Views\Users\UserEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Users\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\SearchBook\" />
     <Folder Include="Views\SignIn\" />
-    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

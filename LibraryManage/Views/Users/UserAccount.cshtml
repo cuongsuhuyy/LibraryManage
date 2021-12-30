@@ -1,0 +1,87 @@
+﻿
+@using LibraryManage.Models;
+@{
+    ViewBag.Title = "UserAccount";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>UserAccount</h2>
+
+@Html.ActionLink("Create new user", "Create", "UserAccount", new { @type = "button", @class = "btn btn-light" })
+<table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">ID User</th>
+            <th scope="col">UserName</th>
+            <th scope="col">Password</th>
+            <th scope="col">Type</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Notes</th>
+            <th scope="col">Picture</th>
+            <th scope="col"> </th>
+        </tr>
+    </thead>
+    @foreach (var b in Model)
+    {
+        <tbody>
+            <tr>
+                @using (Html.BeginForm("EDIT", "Books"))
+                {
+                    <td scope="col">@b.ID_Users</td>
+                    <td id="username" scope="col">@b.Username</td>
+                    <td id="password" scope="col">@b.Password</td>
+                    <td id="type" scope="col">@b.Type</td>
+                    <td scope="col">@b.First_Name</td>
+                    <td scope="col">@b.Last_Name</td>
+                    <td scope="col">@b.Date_of_Birth</td>
+                    <td scope="col">@b.Notes</td>
+                    <td scope="col">
+                        <img alt="User picture" style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + b.PathImage)" />
+                    </td>
+                    <td scope="col">
+                        @Html.ActionLink("EDIT", "EDIT", new { Username = b.Username }, new { @type = "button", @class = "btn btn-primary", @style = "width: 100%" })<br />
+                        @if (this.Session["UserProfile"] != "" && this.Session["Type"].Equals("Manager"))
+                        {
+                            @Html.ActionLink("DELETE", "Delete", new { Username = b.Username }, new { onclick = "return confirm('Are sure wants to delete?');", @type = "button", @class = "btn btn-danger", @style = "width: 100%" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("DELETE", "Delete", new { Username = b.Username }, new { onclick = "return confirm('Are sure wants to delete?');", @type = "button", @class = "btn btn-danger disabled", @style = "width: 100%" })
+                        }
+
+                        <!-- Button trigger modal -->
+                        @*<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+            DELETE
+        </button>*@
+
+                        <!-- Modal -->
+                        <!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">model</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are you sure want to delete?
+            </div>
+            <div class="modal-footer">-->
+                        @*@Html.ActionLink("NO", "Delete", new { IdBook = b.ID_Book, Flag = "false" }, new { @type = "button", @class = "btn btn-warning" })
+        @Html.ActionLink("YES", "Delete", new { IdBook = b.ID_Book, Flag = "true" }, new { @type = "button", @class = "btn btn-secondary" })*@
+                        <!--<button type="button" class="btn btn-warning">No</button>
+                    <button type="submit" class="btn btn-secondary">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>-->
+                    </td>
+                }
+            </tr>
+        </tbody>
+
+    }
+</table>
