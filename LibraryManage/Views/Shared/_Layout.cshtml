@@ -31,10 +31,28 @@
                     <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
                     <li>@Html.ActionLink("OUR BOOK", "Index", "Books")</li>
                     <li>@Html.ActionLink("CONTACT US", "Contact", "Home")</li>
+                    @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Manager") || this.Session["Type"].Equals("Employee")))
+                    {
+                        <li>@Html.ActionLink("USERS MANAGER", "UserAccount", "Users")</li>
+                    }
+                    @*@if (this.Session["UserProfile"] != "" && this.Session["Type"].Equals("Manager"))
+        {
+            <li>@Html.ActionLink("DASHBOARD", "", "")</li>
+        }*@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("REGISTER", "Register", "RegisterLogin")</li>
-                    <li>@Html.ActionLink("LOGIN", "Login", "RegisterLogin")</li>
+                    @if (this.Session["UserProfile"] != "")
+                    {
+                        <li>
+                            <a href="#">HELLO @Session["UserProfile"] (@Session["Type"])</a>
+                        </li>
+                        <li>@Html.ActionLink("LOG OUT", "Logout", "RegisterLogin")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("REGISTER", "Register", "RegisterLogin")</li>
+                        <li>@Html.ActionLink("LOGIN", "Login", "RegisterLogin")</li>
+                    }
                 </ul>
             </div>
         </div>

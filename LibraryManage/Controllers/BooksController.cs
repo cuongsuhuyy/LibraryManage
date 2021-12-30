@@ -32,6 +32,25 @@ namespace LibraryManage.Controllers
             LibraryDBEntities db = new LibraryDBEntities();
             var bookUpdate = db.Books.Single(x => x.ID_Book == IdBook);
 
+            if (IdBook == "")
+                IdBook = "/";
+            if (Name == "")
+                Name = "/";
+            if (Description == "")
+                Description = "/";
+            if (PublishingLocation == "")
+                PublishingLocation = "/";
+            if (Type == "")
+                Type = "/";
+            if (Location == "")
+                Location = "/";
+            if (Notes == "")
+                Notes = "/";
+            if (PathImage == "")
+                PathImage = "/";
+
+            //DateAddToLibrary += " " + DateTime.Now.ToLongTimeString().ToString();
+
             bookUpdate.Name = Name;
             bookUpdate.Description = Description;
             bookUpdate.Publishing_Year = PublishingYear;
@@ -57,17 +76,68 @@ namespace LibraryManage.Controllers
             return View("BookDetail", bookInfor);
         }
 
-        public ActionResult Delete(string IdBook, string Flag)
+        public ActionResult Delete(string IdBook)
         {
             LibraryDBEntities db = new LibraryDBEntities();
-            if (Flag == "true")
-            {
-                var bookInfor = db.Books.Single(x => x.ID_Book == IdBook);
+            var bookInfor = db.Books.Single(x => x.ID_Book == IdBook);
 
-                db.Books.Remove(bookInfor);
-                db.SaveChanges();
+            db.Books.Remove(bookInfor);
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Books");
+        }
+                
+        public ActionResult Create()
+        {            
+            return View("BookCreate");
+        }
+
+        [HttpPost]
+        public ActionResult AddNewToDB(string IdBook, string Name, string Description, int PublishingYear, string PublishingLocation,
+            string Type, string DateAddToLibrary, string Location, string Notes, string PathImage, int Quantily)
+        {
+            LibraryDBEntities db = new LibraryDBEntities();
+
+            var checkIfExist = db.Books.SingleOrDefault(x => x.ID_Book == IdBook);
+            if(checkIfExist != null)
+            {
+                return Content("This ID Book have been created");
             }
 
+            if (IdBook == "")
+                IdBook = "/";
+            if (Name == "")
+                Name = "/";
+            if (Description == "")
+                Description = "/";
+            if (PublishingLocation == "")
+                PublishingLocation = "/";
+            if (Type == "")
+                Type = "/";
+            if (Location == "")
+                Location = "/";
+            if (Notes == "")
+                Notes = "/";
+            if (PathImage == "")
+                PathImage = "/";
+
+            Book bookInfo = new Book();
+
+            DateAddToLibrary += " " + DateTime.Now.ToLongTimeString().ToString();
+            bookInfo.ID_Book = IdBook;
+            bookInfo.Name = Name;
+            bookInfo.Description = Description;
+            bookInfo.Publishing_Year = PublishingYear;
+            bookInfo.Publishing_Location = PublishingLocation;
+            bookInfo.Type = Type;
+            bookInfo.Date_add_to_library = DateAddToLibrary;
+            bookInfo.Location_in_library = Location;
+            bookInfo.Notes = Notes;
+            bookInfo.PathImage = PathImage;
+            bookInfo.Quantily = Quantily;
+
+            db.Books.Add(bookInfo);
+            db.SaveChanges();
 
             return RedirectToAction("Index", "Books");
         }

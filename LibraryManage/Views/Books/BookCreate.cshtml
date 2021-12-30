@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "BookCreate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BookCreate</h2>
+
+@using (Html.BeginForm("AddNewToDB", "Books"))
+{
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Id_Book</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="text" name="IdBook" placeholder="IdBook" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Name of Book</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="text" name="Name" placeholder="Name Of Book" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Description" placeholder="Description" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Publishing Year</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="number" name="PublishingYear" placeholder="Publishing Year" min="1000" max="9999" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Publishing Location</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="PublishingLocation" placeholder="Publishing Location" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Type" placeholder="Type" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Date add to library</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="date" name="DateAddToLibrary" placeholder="Date add to library" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Location in library</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Location" placeholder="Location" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Notes</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Notes" placeholder="Notes" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Path Image</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="PathImage" placeholder="PathImage" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Quantily</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="number" name="Quantily" placeholder="Quantily" min="0" max="9999" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" class="col-md-offset-4 col-md-6 btn btn-primary" value="submit" />
+    </div>
+}

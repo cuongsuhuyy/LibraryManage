@@ -19,8 +19,9 @@ namespace LibraryManage.DatabaseAccess
         public string ID_Users { get; set; }
         public string Last_Name { get; set; }
         public string First_Name { get; set; }
-        public Nullable<System.DateTime> Date_of_Birth { get; set; }
+        public string Date_of_Birth { get; set; }
         public string Type { get; set; }
         public string Notes { get; set; }
+        public string PathImage { get; set; }
     }
 }

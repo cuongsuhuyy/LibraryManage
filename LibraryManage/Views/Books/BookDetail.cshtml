@@ -16,58 +16,63 @@
             <img src="@("https://localhost:44335/" + Model.PathImage)" style="visibility: visible; animation-name: fadeInLeft;" class="img-responsive wow fadeInLeft animated" />
         </div>
         <div class="col-lg-4 col-md-5">
-            <h1 class="font-oswald">@Model.Name</h1>
-            <h3 class="margin-top5">@Model.Description</h3>
+            <h1 class="font-roboto">@Model.Name</h1>
             <div class="row">
                 <div class="col-md-6">
-                    <h4 class="text-right">ID:</h4>
+                    <h4 class="font-roboto text-right">ID:</h4>
                 </div>
                 <div class="col-md-6">
-                    <h4>@Model.ID_Book</h4>
-                </div>
-
-                <div class="col-md-6">
-                    <h4 class="text-right">Pulishing Year:</h4>
-                </div>
-                <div class="col-md-6">
-                    <h4>@Model.Publishing_Year</h4>
+                    <h4 class="font-roboto">@Model.ID_Book</h4>
                 </div>
 
                 <div class="col-md-6">
-                    <h4 class="text-right">Publishing Location:</h4>
+                    <h4 class="font-roboto text-right">Pulishing Year:</h4>
                 </div>
                 <div class="col-md-6">
-                    <h4>@Model.Publishing_Location</h4>
-                </div>
-
-                <div class="col-md-6">
-                    <h4 class="text-right">Type:</h4>
-                </div>
-                <div class="col-md-6">
-                    <h4>@Model.Type</h4>
+                    <h4 class="font-roboto">@Model.Publishing_Year</h4>
                 </div>
 
                 <div class="col-md-6">
-                    <h4 class="text-right">Date add to Library:</h4>
+                    <h4 class="font-roboto text-right">Publishing Location:</h4>
                 </div>
                 <div class="col-md-6">
-                    <h4>@Model.Date_add_to_library</h4>
-                </div>
-
-                <div class="col-md-6">
-                    <h4 class="text-right">Location:</h4>
-                </div>
-                <div class="col-md-6">
-                    <h4>@Model.Location_in_library</h4>
+                    <h4 class="font-roboto">@Model.Publishing_Location</h4>
                 </div>
 
                 <div class="col-md-6">
-                    <h4 class="text-right">Quantily:</h4>
+                    <h4 class="font-roboto text-right">Type:</h4>
                 </div>
                 <div class="col-md-6">
-                    <h4>@Model.Quantily</h4>
+                    <h4 class="font-roboto">@Model.Type</h4>
+                </div>
+
+                <div class="col-md-6">
+                    <h4 class="font-roboto text-right">Date add to Library:</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="font-roboto">@Model.Date_add_to_library</h4>
+                </div>
+
+                <div class="col-md-6">
+                    <h4 class="font-roboto text-right">Location:</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="font-roboto">@Model.Location_in_library</h4>
+                </div>
+
+                <div class="col-md-6">
+                    <h4 class="font-roboto text-right">Quantily:</h4>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="font-roboto">@Model.Quantily</h4>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <h4>Description</h4>
+        <div class="col-md-12">
+            <h4>@Model.Description</h4>
         </div>
     </div>
 </div>

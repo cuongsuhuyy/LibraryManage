@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="LibraryDBModel.Account">
         <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="PathImage" ColumnName="PathImage" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="ID_Users" ColumnName="ID Users" />
