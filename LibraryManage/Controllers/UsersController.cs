@@ -40,7 +40,7 @@ namespace LibraryManage.Controllers
 
             var AllUserAccount = db.Accounts.ToList();
 
-            return View(AllUserAccount);
+            return View("Index", AllUserAccount);
         }
 
         public ActionResult Create()
@@ -64,6 +64,38 @@ namespace LibraryManage.Controllers
             if (Pathimage == "")
                 Pathimage = "/";
 
+            if (Type == "User")
+            {
+                User userInfo = new User();
+                userInfo.ID_User = IdUser;
+                userInfo.First_Name = Firstname;
+                userInfo.Last_Name = Lastname;
+                userInfo.Date_of_Birth = DateTime.Parse(Dateofbirth);
+                userInfo.Type = Type;
+                userInfo.Notes = Notes;
+
+                db.Users.Add(userInfo);
+                db.SaveChanges();
+
+                return View("UserInfo", userInfo);
+            }
+
+            if (Type == "Employee" || Type == "Manager")
+            {
+                Employee emlInfo = new Employee();
+                emlInfo.ID_Employee = IdUser;
+                emlInfo.First_Name = Firstname;
+                emlInfo.Last_Name = Lastname;
+                emlInfo.Date_of_Birth = DateTime.Parse(Dateofbirth);
+                emlInfo.Type = Type;
+                emlInfo.Notes = Notes;
+
+                db.Employees.Add(emlInfo);
+                db.SaveChanges();
+
+                return View("EmlInfo", emlInfo);
+            }
+
             Account accountInfo = new Account();
 
             accountInfo.ID_Users = IdUser;
@@ -77,9 +109,47 @@ namespace LibraryManage.Controllers
             accountInfo.PathImage = Pathimage;
 
             db.Accounts.Add(accountInfo);
-            db.SaveChanges();
+            db.SaveChanges();            
 
             return RedirectToAction("UserAccount", "Users");
+        }
+
+        public ActionResult UpdateUser(string Iduser, string Sex, string Faculty, DateTime Productiondate, DateTime Expirationdate, 
+            string Email, string Address, int Phonenumber)
+        {
+            LibraryDBEntities db = new LibraryDBEntities();
+            var userUpdate = db.Users.Single(x => x.ID_User == Iduser);
+
+            userUpdate.ID_User = Iduser;
+            userUpdate.Sex = Sex;
+            userUpdate.Faculty = Faculty;
+            userUpdate.Production_Date = Productiondate;
+            userUpdate.Expiration_Date = Expirationdate;
+            userUpdate.Email = Email;
+            userUpdate.Address = Address;
+            userUpdate.Phone_Number = Phonenumber;
+
+            db.Entry(userUpdate);
+            db.SaveChanges();
+
+            return Content("Successful");
+        }
+
+        public ActionResult UpdateEml(string Iduser, string Sex, int Salary, DateTime Workingday, DateTime Lastworkingday)
+        {
+            LibraryDBEntities db = new LibraryDBEntities();
+            var emlUpdate = db.Employees.Single(x => x.ID_Employee == Iduser);
+
+            emlUpdate.ID_Employee = Iduser;
+            emlUpdate.Sex = Sex;
+            emlUpdate.Salary = Salary;
+            emlUpdate.Working_day = Workingday;
+            emlUpdate.Last_Working_Day = Lastworkingday;
+
+            db.Entry(emlUpdate);
+            db.SaveChanges();
+
+            return Content("Successful");
         }
 
         public ActionResult EDIT(string Username)
@@ -91,7 +161,7 @@ namespace LibraryManage.Controllers
         }
 
         public ActionResult Update(string IdUsers, string Username, string Password, string Firstname, string Lastname,
-            string Type, string Dateofbirth, string Notes, string Pathimage)
+            string Type, DateTime Dateofbirth, string Notes, string Pathimage)
         {
             LibraryDBEntities db = new LibraryDBEntities();
             var userUpdate = db.Accounts.Single(x => x.Username == Username);
@@ -106,7 +176,7 @@ namespace LibraryManage.Controllers
             userUpdate.First_Name = Firstname;
             userUpdate.Last_Name = Lastname;
             userUpdate.Type = Type;
-            userUpdate.Date_of_Birth = Dateofbirth;
+            userUpdate.Date_of_Birth = Dateofbirth.ToString();
             userUpdate.Notes = Notes;
             userUpdate.PathImage = Pathimage;
 

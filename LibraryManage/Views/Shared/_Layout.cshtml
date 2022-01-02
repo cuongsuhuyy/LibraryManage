@@ -29,7 +29,14 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
                     <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
-                    <li>@Html.ActionLink("OUR BOOK", "Index", "Books")</li>
+                    @if (this.Session["UserProfile"].Equals("") || this.Session["Type"].Equals("User"))
+                    {
+                        <li>@Html.ActionLink("OUR BOOK", "BookViewUser", "Books")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("OUR BOOK", "Index", "Books")</li>
+                    }
                     <li>@Html.ActionLink("CONTACT US", "Contact", "Home")</li>
                     @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Manager") || this.Session["Type"].Equals("Employee")))
                     {

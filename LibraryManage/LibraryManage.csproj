@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\BorrowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SearchBookController.cs" />
@@ -161,6 +162,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseAccess\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>LibraryDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseAccess\sp_helpdiagrams_Result.cs">
+      <DependentUpon>LibraryDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseAccess\sysdiagram.cs">
       <DependentUpon>LibraryDB.tt</DependentUpon>
@@ -3174,9 +3181,13 @@
     <Content Include="Views\Books\BookEdit.cshtml" />
     <Content Include="Views\Books\BookDetail.cshtml" />
     <Content Include="Views\Books\BookCreate.cshtml" />
-    <Content Include="Views\Users\UserAccount.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\UserCreate.cshtml" />
     <Content Include="Views\Users\UserEdit.cshtml" />
+    <Content Include="Views\Books\BookViewUser.cshtml" />
+    <Content Include="Views\Users\EmlInfo.cshtml" />
+    <Content Include="Views\Users\UserInfo.cshtml" />
+    <Content Include="Views\Borrow\HireBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
