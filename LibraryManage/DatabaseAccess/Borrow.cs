@@ -14,15 +14,12 @@ namespace LibraryManage.DatabaseAccess
     
     public partial class Borrow
     {
+        public string ID_Borrow { get; set; }
         public string ID_Book { get; set; }
-        public string ID_Users { get; set; }
+        public string ID_User { get; set; }
         public string ID_Employee { get; set; }
         public System.DateTime Borrow_Date { get; set; }
         public Nullable<System.DateTime> Pay_Day { get; set; }
         public string Notes { get; set; }
-    
-        public virtual Book Book { get; set; }
-        public virtual Employee Employee { get; set; }
-        public virtual User User { get; set; }
     }
 }

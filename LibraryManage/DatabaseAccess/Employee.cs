@@ -14,12 +14,6 @@ namespace LibraryManage.DatabaseAccess
     
     public partial class Employee
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
-        {
-            this.Borrows = new HashSet<Borrow>();
-        }
-    
         public string ID_Employee { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
@@ -30,8 +24,5 @@ namespace LibraryManage.DatabaseAccess
         public Nullable<System.DateTime> Last_Working_Day { get; set; }
         public Nullable<int> Salary { get; set; }
         public string Notes { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Borrow> Borrows { get; set; }
     }
 }

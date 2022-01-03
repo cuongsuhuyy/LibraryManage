@@ -163,12 +163,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LibraryDB.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseAccess\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DatabaseAccess\sp_helpdiagrams_Result.cs">
-      <DependentUpon>LibraryDB.tt</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseAccess\sysdiagram.cs">
       <DependentUpon>LibraryDB.tt</DependentUpon>
     </Compile>

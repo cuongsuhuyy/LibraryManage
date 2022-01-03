@@ -14,12 +14,6 @@ namespace LibraryManage.DatabaseAccess
     
     public partial class User
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
-        {
-            this.Borrows = new HashSet<Borrow>();
-        }
-    
         public string ID_User { get; set; }
         public string First_Name { get; set; }
         public string Last_Name { get; set; }
@@ -33,8 +27,5 @@ namespace LibraryManage.DatabaseAccess
         public string Address { get; set; }
         public Nullable<int> Phone_Number { get; set; }
         public string Notes { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Borrow> Borrows { get; set; }
     }
 }
