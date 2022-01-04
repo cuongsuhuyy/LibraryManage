@@ -28,7 +28,7 @@
             <div class="navbar-collapse collapse">                 
                 <ul class="nav navbar-nav navbar-left">
                     <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-                    <li>@Html.ActionLink("ABOUT US", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("ABOUT US", "About", "Home")</li>*@
                     @if (this.Session["UserProfile"].Equals("") || this.Session["Type"].Equals("User"))
                     {
                         <li>@Html.ActionLink("OUR BOOK", "BookViewUser", "Books")</li>
@@ -42,10 +42,14 @@
                     {
                         <li>@Html.ActionLink("USERS MANAGER", "UserAccount", "Users")</li>
                     }
-                    @*@if (this.Session["UserProfile"] != "" && this.Session["Type"].Equals("Manager"))
-        {
-            <li>@Html.ActionLink("DASHBOARD", "", "")</li>
-        }*@
+                    @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Employee") || this.Session["Type"].Equals("Manager")))
+                    {
+                        <li>@Html.ActionLink("WAIT VERIFY", "Verify", "Borrow")</li>
+                    }
+                    @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Employee") || this.Session["Type"].Equals("Manager")))
+                    {
+                        <li>@Html.ActionLink("RETURN BOOK", "ReturnBook", "Borrow")</li>
+                    }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (this.Session["UserProfile"] != "")

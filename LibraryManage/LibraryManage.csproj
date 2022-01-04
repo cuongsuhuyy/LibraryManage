@@ -3182,6 +3182,8 @@
     <Content Include="Views\Users\EmlInfo.cshtml" />
     <Content Include="Views\Users\UserInfo.cshtml" />
     <Content Include="Views\Borrow\HireBook.cshtml" />
+    <Content Include="Views\Borrow\VerifyHireBook.cshtml" />
+    <Content Include="Views\Borrow\ReturnBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
