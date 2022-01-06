@@ -173,6 +173,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\Common.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Models\UsersModel.cs" />

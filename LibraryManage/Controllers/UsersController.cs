@@ -64,6 +64,21 @@ namespace LibraryManage.Controllers
             if (Pathimage == "")
                 Pathimage = "/";
 
+            Account accountInfo = new Account();
+
+            accountInfo.ID_Users = IdUser;
+            accountInfo.Username = Username;
+            accountInfo.Password = Password;
+            accountInfo.First_Name = Firstname;
+            accountInfo.Last_Name = Lastname;
+            accountInfo.Type = Type;
+            accountInfo.Date_of_Birth = Dateofbirth;
+            accountInfo.Notes = Notes;
+            accountInfo.PathImage = Pathimage;
+
+            db.Accounts.Add(accountInfo);
+            db.SaveChanges();
+
             if (Type == "User")
             {
                 User userInfo = new User();
@@ -94,22 +109,7 @@ namespace LibraryManage.Controllers
                 db.SaveChanges();
 
                 return View("EmlInfo", emlInfo);
-            }
-
-            Account accountInfo = new Account();
-
-            accountInfo.ID_Users = IdUser;
-            accountInfo.Username = Username;
-            accountInfo.Password = Password;
-            accountInfo.First_Name = Firstname;
-            accountInfo.Last_Name = Lastname;
-            accountInfo.Type = Type;
-            accountInfo.Date_of_Birth = Dateofbirth;
-            accountInfo.Notes = Notes;
-            accountInfo.PathImage = Pathimage;
-
-            db.Accounts.Add(accountInfo);
-            db.SaveChanges();            
+            }                      
 
             return RedirectToAction("UserAccount", "Users");
         }
@@ -155,9 +155,25 @@ namespace LibraryManage.Controllers
         public ActionResult EDIT(string Username)
         {
             LibraryDBEntities db = new LibraryDBEntities();
-            var userInfor = db.Accounts.Single(x => x.Username == Username);
+            var neObject = new Models.Common();
+            var userInfor = db.Accounts.SingleOrDefault(x => x.Username == Username);
+            neObject.objAccount = userInfor;
 
-            return View("UserEdit", userInfor);
+            if(userInfor.Type == "Employee" || userInfor.Type == "Manager")
+            {
+                var empInfor = db.Employees.SingleOrDefault(x => x.ID_Employee == userInfor.ID_Users);
+                neObject.objEmployee = empInfor;
+                neObject.Type = 1;
+            }
+
+            if(userInfor.Type == "User")
+            {
+                var userrrInfor = db.Users.SingleOrDefault(x => x.ID_User == userInfor.ID_Users);
+                neObject.objUsers = userrrInfor;
+                neObject.Type = 0;
+            }
+
+            return View("UserEdit", neObject);
         }
 
         public ActionResult Update(string IdUsers, string Username, string Password, string Firstname, string Lastname,

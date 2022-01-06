@@ -7,18 +7,19 @@
 
 @using (Html.BeginForm("Update", "Users"))
 {
+
     <div class="row">
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Username</label>
             <div class="col-sm-10">
-                <input readonly class="form-control" type="text" name="Username" placeholder="Username" value="@Model.Username" />
+                <input readonly class="form-control" type="text" name="Username" placeholder="Username" value="@Model.objAccount.Username" />
             </div>
         </div>
 
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Password</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="Password" placeholder="Password" value="@Model.Password" />
+                <input class="form-control" type="password" name="Password" placeholder="Password" value="@Model.objAccount.Password" />
             </div>
         </div>
     </div>
@@ -27,14 +28,14 @@
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">First Name</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="Firstname" placeholder="First Name" value="@Model.First_Name" />
+                <input class="form-control" type="text" name="Firstname" placeholder="First Name" value="@Model.objAccount.First_Name" />
             </div>
         </div>
 
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Last Name</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="Lastname" placeholder="Last Name" value="@Model.Last_Name" />
+                <input class="form-control" type="text" name="Lastname" placeholder="Last Name" value="@Model.objAccount.Last_Name" />
             </div>
         </div>
     </div>
@@ -56,7 +57,7 @@
                 }
                 else
                 {
-                    <input readonly class="form-control" type="text" name="Type" placeholder="Type" value="@Model.Type" />
+                    <input readonly class="form-control" type="text" name="Type" placeholder="Type" value="@Model.objAccount.Type" />
                 }
             </div>
         </div>
@@ -64,7 +65,7 @@
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Date of Birth</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="Dateofbirth" placeholder="Date of Birth" value="@Model.Date_of_Birth" />
+                <input class="form-control" type="text" name="Dateofbirth" placeholder="Date of Birth" value="@Model.objAccount.Date_of_Birth" />
             </div>
         </div>
     </div>
@@ -73,23 +74,128 @@
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Path Image</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="Pathimage" placeholder="Path Image" value="@Model.PathImage" />
+                <input class="form-control" type="text" name="Pathimage" placeholder="Path Image" value="@Model.objAccount.PathImage" />
             </div>
         </div>
 
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">Notes</label>
             <div class="col-sm-10">
-                <input class="form-control" type="text" name="Notes" placeholder="Notes" value="@Model.Notes" />
+                <input class="form-control" type="text" name="Notes" placeholder="Notes" value="@Model.objAccount.Notes" />
             </div>
         </div>
     </div>
+
+    if (Model.Type == 1)
+    {
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Sex</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Sex" placeholder="Sex" value="@Model.objEmployee.Sex" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Salary</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Salary" placeholder="Salary" value="@Model.objEmployee.Salary" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Working Day</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Workingday" placeholder="Working Day" value="@Model.objEmployee.Working_day" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Last Working Day</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Lastworkingday" placeholder="Last Working Day" value="@Model.objEmployee.Last_Working_Day" />
+                </div>
+            </div>
+        </div>
+    }
+
+
+    if (Model.Type == 0)
+    {
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Sex</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Sex" placeholder="Sex" value="@Model.objUsers.Sex" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Faculty</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Faculty" placeholder="Faculty" value="@Model.objUsers.Faculty" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Production Date</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Productiondate" placeholder="Production Date" value="@Model.objUsers.Production_Date" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Expiration Date</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Expirationdate" placeholder="Expiration Date" value="@Model.objUsers.Expiration_Date" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="email" name="Email" placeholder="Email" value="@Model.objUsers.Email" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Address" placeholder="Address" value="@Model.objUsers.Address" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Phone Number</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="number" name="Phonenumber" placeholder="Phone Number" value="@Model.objUsers.Phone_Number" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Notes From UserTable</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Notes" placeholder="Notes" value="@Model.objUsers.Notes" />
+                </div>
+            </div>
+        </div>
+    }
+
 
     <div @*style="display: none;"*@ class="row">
         <div class="col-md-6 form-group row">
             <label class="col-sm-2 col-form-label">ID User</label>
             <div class="col-sm-10">
-                <input readonly class="form-control" type="text" name="IdUsers" placeholder="IdUsers" value="@Model.ID_Users" />
+                <input readonly class="form-control" type="text" name="IdUsers" placeholder="IdUsers" value="@Model.objAccount.ID_Users" />
             </div>
         </div>
     </div>
@@ -98,3 +204,5 @@
         <input type="submit" class="col-md-offset-4 col-md-6 btn btn-primary" value="submit" />
     </div>
 }
+
+

@@ -24,14 +24,19 @@
                         </h2>
                     </div>
                     <div class="col-md-6">
-                        <input style="color: black;" class="input" type="text" name="BookTitle" placeholder="Enter Your Title" />
+                        <input required style="color: black;" class="input" type="text" name="BookName" placeholder="Enter Your Title" />
                     </div>
                     <div class="col-md-2">
-                        @Html.DropDownList("LogOffTime", new List<SelectListItem>
+                        @Html.DropDownList("TitleBook", new List<SelectListItem>
                         {
-                           new SelectListItem{ Text="Action", Value = "action"},
-                           new SelectListItem{ Text="Horror", Value = "horror" },
-                           new SelectListItem{ Text="Anime", Value = "anime" }
+                           new SelectListItem{ Text="Science", Value = "Science"},
+                           new SelectListItem{ Text="Travel", Value = "Travel" },
+                           new SelectListItem{ Text="Diary", Value = "Diary" },
+                           new SelectListItem{ Text="Text Book", Value = "Text Book" },
+                           new SelectListItem{ Text="Poetry", Value = "Poetry" },
+                           new SelectListItem{ Text="Picture Book", Value = "Picture Book" },
+                           new SelectListItem{ Text="History Fiction", Value = "History Fiction" },
+                           new SelectListItem{ Text="Other", Value = "Other" }
                         }, new {@class = "width100 btn btn-secondary"})
 
                     </div>

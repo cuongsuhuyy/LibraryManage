@@ -148,5 +148,11 @@ namespace LibraryManage.Controllers
             var book = db.Books.ToList();
             return View(book);
         }
+
+        public ActionResult Search(List<Book> bookSearch)
+        {
+            var a = this.Session["Search"];
+            return View("Index", this.Session["Search"]);
+        }
     }
 }
