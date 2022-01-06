@@ -30,18 +30,14 @@
     <Property Name="PathImage" Type="nvarchar(max)" />
     <Property Name="Quantily" Type="int" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Borrow">
     <Key>
-      <PropertyRef Name="ID Book" />
-      <PropertyRef Name="ID Users" />
-      <PropertyRef Name="ID Employee" />
-      <PropertyRef Name="Borrow Date" />
+      <PropertyRef Name="ID Borrow" />
     </Key>
-    <Property Name="ID Book" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID Users" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="ID Employee" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID Borrow" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ID Book" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID User" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ID Employee" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Borrow Date" Type="datetime" Nullable="false" />
     <Property Name="Pay Day" Type="datetime" />
     <Property Name="Notes" Type="nvarchar(max)" />
@@ -89,69 +85,12 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
     <Property Name="Phone Number" Type="int" />
     <Property Name="Notes" Type="nvarchar(max)" />
   </EntityType>
-  <Association Name="FK_Borrow_Book">
-    <End Role="Book" Type="Self.Book" Multiplicity="1" />
-    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="ID Book" />
-      </Principal>
-      <Dependent Role="Borrow">
-        <PropertyRef Name="ID Book" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Borrow_Employee">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="ID Employee" />
-      </Principal>
-      <Dependent Role="Borrow">
-        <PropertyRef Name="ID Employee" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Borrow_Users">
-    <End Role="Users" Type="Self.Users" Multiplicity="1" />
-    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="ID User" />
-      </Principal>
-      <Dependent Role="Borrow">
-        <PropertyRef Name="ID Users" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="LibraryDBModelStoreContainer">
     <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Borrow" EntityType="Self.Borrow" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Borrow" EntityType="Self.Borrow" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Borrow].[ID Book] AS [ID Book], 
-    [Borrow].[ID Users] AS [ID Users], 
-    [Borrow].[ID Employee] AS [ID Employee], 
-    [Borrow].[Borrow Date] AS [Borrow Date], 
-    [Borrow].[Pay Day] AS [Pay Day], 
-    [Borrow].[Notes] AS [Notes]
-    FROM [dbo].[Borrow] AS [Borrow]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK_Borrow_Book" Association="Self.FK_Borrow_Book">
-      <End Role="Book" EntitySet="Book" />
-      <End Role="Borrow" EntitySet="Borrow" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Borrow_Employee" Association="Self.FK_Borrow_Employee">
-      <End Role="Employee" EntitySet="Employee" />
-      <End Role="Borrow" EntitySet="Borrow" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Borrow_Users" Association="Self.FK_Borrow_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Borrow" EntitySet="Borrow" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

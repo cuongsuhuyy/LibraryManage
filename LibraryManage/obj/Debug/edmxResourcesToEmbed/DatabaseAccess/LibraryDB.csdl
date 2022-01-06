@@ -9,7 +9,7 @@
     <Property Name="ID_Users" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Date_of_Birth" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Date_of_Birth" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -24,12 +24,23 @@
     <Property Name="Publishing_Year" Type="Int32" />
     <Property Name="Publishing_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Date_add_to_library" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Date_add_to_library" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="Location_in_library" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Quantily" Type="Int32" />
-    <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
+  </EntityType>
+  <EntityType Name="Borrow">
+    <Key>
+      <PropertyRef Name="ID_Borrow" />
+    </Key>
+    <Property Name="ID_Borrow" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Book" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_User" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ID_Employee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Borrow_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Pay_Day" Type="DateTime" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Employee">
     <Key>
@@ -45,7 +56,6 @@
     <Property Name="Last_Working_Day" Type="DateTime" Precision="0" />
     <Property Name="Salary" Type="Int32" />
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Employee" FromRole="Employee" ToRole="Borrow" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -74,79 +84,13 @@
     <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Phone_Number" Type="Int32" />
     <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Users" FromRole="Users" ToRole="Borrow" />
   </EntityType>
-  <EntityType Name="Borrow">
-    <Key>
-      <PropertyRef Name="ID_Book" />
-      <PropertyRef Name="ID_Users" />
-      <PropertyRef Name="ID_Employee" />
-      <PropertyRef Name="Borrow_Date" />
-    </Key>
-    <Property Name="ID_Book" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ID_Users" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ID_Employee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Borrow_Date" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="Pay_Day" Type="DateTime" Precision="3" />
-    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Book" Relationship="Self.FK_Borrow_Book" FromRole="Borrow" ToRole="Book" />
-    <NavigationProperty Name="Employee" Relationship="Self.FK_Borrow_Employee" FromRole="Borrow" ToRole="Employee" />
-    <NavigationProperty Name="User" Relationship="Self.FK_Borrow_Users" FromRole="Borrow" ToRole="Users" />
-  </EntityType>
-  <Association Name="FK_Borrow_Book">
-    <End Role="Book" Type="Self.Book" Multiplicity="1" />
-    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Book">
-        <PropertyRef Name="ID_Book" />
-      </Principal>
-      <Dependent Role="Borrow">
-        <PropertyRef Name="ID_Book" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Borrow_Employee">
-    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Employee">
-        <PropertyRef Name="ID_Employee" />
-      </Principal>
-      <Dependent Role="Borrow">
-        <PropertyRef Name="ID_Employee" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Borrow_Users">
-    <End Role="Users" Type="Self.User" Multiplicity="1" />
-    <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Users">
-        <PropertyRef Name="ID_User" />
-      </Principal>
-      <Dependent Role="Borrow">
-        <PropertyRef Name="ID_Users" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="LibraryDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Accounts" EntityType="Self.Account" />
     <EntitySet Name="Books" EntityType="Self.Book" />
+    <EntitySet Name="Borrows" EntityType="Self.Borrow" />
     <EntitySet Name="Employees" EntityType="Self.Employee" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Users" EntityType="Self.User" />
-    <EntitySet Name="Borrows" EntityType="Self.Borrow" />
-    <AssociationSet Name="FK_Borrow_Book" Association="Self.FK_Borrow_Book">
-      <End Role="Book" EntitySet="Books" />
-      <End Role="Borrow" EntitySet="Borrows" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Borrow_Employee" Association="Self.FK_Borrow_Employee">
-      <End Role="Employee" EntitySet="Employees" />
-      <End Role="Borrow" EntitySet="Borrows" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Borrow_Users" Association="Self.FK_Borrow_Users">
-      <End Role="Users" EntitySet="Users" />
-      <End Role="Borrow" EntitySet="Borrows" />
-    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -4,7 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>BookDetails</h2>
+<a href="javascript:void(0);" onclick="history.go(-1);"><h2>BookEdit</h2></a>
+
 @using (Html.BeginForm("Update", "Books"))
 {
     <div class="row">

@@ -4,14 +4,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";    
 }
 
-<h2>Login</h2>
+<h2 class="text-center">Login</h2>
 
-@using (Html.BeginForm("Login", "RegisterLogin"))
+<div class="col-md-offset-5">
+    @using (Html.BeginForm("Login", "RegisterLogin"))
     {
-        <input type="text" name="Username" placeholder="Username" />
-        <input type="password" name="Password" placeholder="Password" />
-        <input type="submit" value="submit"/>
+        <label style="width: 70px;">Username</label>
+        <input type="text" name="Username" placeholder="Username" /> <br />
+
+        <label style="width: 70px;">Password</label>
+        <input type="password" name="Password" placeholder="Password" /> <br /> <br />
+        <input type="submit" value="Login" />
+
         <button>Forgot your password</button>
     }
+</div>
+
 
 

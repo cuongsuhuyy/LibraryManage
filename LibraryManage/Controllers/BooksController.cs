@@ -141,5 +141,18 @@ namespace LibraryManage.Controllers
 
             return RedirectToAction("Index", "Books");
         }
+
+        public ActionResult BookViewUser()
+        {
+            LibraryDBEntities db = new LibraryDBEntities();
+            var book = db.Books.ToList();
+            return View(book);
+        }
+
+        public ActionResult Search(List<Book> bookSearch)
+        {
+            var a = this.Session["Search"];
+            return View("Index", this.Session["Search"]);
+        }
     }
 }

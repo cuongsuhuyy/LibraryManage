@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="LibraryDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Username" />
@@ -35,18 +35,14 @@
           <Property Name="PathImage" Type="nvarchar(max)" />
           <Property Name="Quantily" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Borrow">
           <Key>
-            <PropertyRef Name="ID Book" />
-            <PropertyRef Name="ID Users" />
-            <PropertyRef Name="ID Employee" />
-            <PropertyRef Name="Borrow Date" />
+            <PropertyRef Name="ID Borrow" />
           </Key>
-          <Property Name="ID Book" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID Users" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ID Employee" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID Borrow" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="ID Book" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID User" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ID Employee" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Borrow Date" Type="datetime" Nullable="false" />
           <Property Name="Pay Day" Type="datetime" />
           <Property Name="Notes" Type="nvarchar(max)" />
@@ -94,72 +90,16 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="Phone Number" Type="int" />
           <Property Name="Notes" Type="nvarchar(max)" />
         </EntityType>
-        <Association Name="FK_Borrow_Book">
-          <End Role="Book" Type="Self.Book" Multiplicity="1" />
-          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Book">
-              <PropertyRef Name="ID Book" />
-            </Principal>
-            <Dependent Role="Borrow">
-              <PropertyRef Name="ID Book" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Borrow_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="ID Employee" />
-            </Principal>
-            <Dependent Role="Borrow">
-              <PropertyRef Name="ID Employee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Borrow_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="ID User" />
-            </Principal>
-            <Dependent Role="Borrow">
-              <PropertyRef Name="ID Users" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="LibraryDBModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Borrow" EntityType="Self.Borrow" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Borrow" EntityType="Self.Borrow" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Borrow].[ID Book] AS [ID Book], 
-    [Borrow].[ID Users] AS [ID Users], 
-    [Borrow].[ID Employee] AS [ID Employee], 
-    [Borrow].[Borrow Date] AS [Borrow Date], 
-    [Borrow].[Pay Day] AS [Pay Day], 
-    [Borrow].[Notes] AS [Notes]
-    FROM [dbo].[Borrow] AS [Borrow]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_Borrow_Book" Association="Self.FK_Borrow_Book">
-            <End Role="Book" EntitySet="Book" />
-            <End Role="Borrow" EntitySet="Borrow" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Borrow_Employee" Association="Self.FK_Borrow_Employee">
-            <End Role="Employee" EntitySet="Employee" />
-            <End Role="Borrow" EntitySet="Borrow" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Borrow_Users" Association="Self.FK_Borrow_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Borrow" EntitySet="Borrow" />
-          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LibraryDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -172,7 +112,7 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="ID_Users" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Date_of_Birth" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Date_of_Birth" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -187,12 +127,23 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="Publishing_Year" Type="Int32" />
           <Property Name="Publishing_Location" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Date_add_to_library" Type="String" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="Date_add_to_library" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="Location_in_library" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="PathImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Quantily" Type="Int32" />
-          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Book" FromRole="Book" ToRole="Borrow" />
+        </EntityType>
+        <EntityType Name="Borrow">
+          <Key>
+            <PropertyRef Name="ID_Borrow" />
+          </Key>
+          <Property Name="ID_Borrow" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Book" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_User" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ID_Employee" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Borrow_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Pay_Day" Type="DateTime" Precision="3" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -208,7 +159,6 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="Last_Working_Day" Type="DateTime" Precision="0" />
           <Property Name="Salary" Type="Int32" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Employee" FromRole="Employee" ToRole="Borrow" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -237,80 +187,14 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Phone_Number" Type="Int32" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Borrows" Relationship="Self.FK_Borrow_Users" FromRole="Users" ToRole="Borrow" />
         </EntityType>
-        <EntityType Name="Borrow">
-          <Key>
-            <PropertyRef Name="ID_Book" />
-            <PropertyRef Name="ID_Users" />
-            <PropertyRef Name="ID_Employee" />
-            <PropertyRef Name="Borrow_Date" />
-          </Key>
-          <Property Name="ID_Book" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_Users" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ID_Employee" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Borrow_Date" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="Pay_Day" Type="DateTime" Precision="3" />
-          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="Self.FK_Borrow_Book" FromRole="Borrow" ToRole="Book" />
-          <NavigationProperty Name="Employee" Relationship="Self.FK_Borrow_Employee" FromRole="Borrow" ToRole="Employee" />
-          <NavigationProperty Name="User" Relationship="Self.FK_Borrow_Users" FromRole="Borrow" ToRole="Users" />
-        </EntityType>
-        <Association Name="FK_Borrow_Book">
-          <End Role="Book" Type="Self.Book" Multiplicity="1" />
-          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Book">
-              <PropertyRef Name="ID_Book" />
-            </Principal>
-            <Dependent Role="Borrow">
-              <PropertyRef Name="ID_Book" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Borrow_Employee">
-          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
-          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Employee">
-              <PropertyRef Name="ID_Employee" />
-            </Principal>
-            <Dependent Role="Borrow">
-              <PropertyRef Name="ID_Employee" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Borrow_Users">
-          <End Role="Users" Type="Self.User" Multiplicity="1" />
-          <End Role="Borrow" Type="Self.Borrow" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="ID_User" />
-            </Principal>
-            <Dependent Role="Borrow">
-              <PropertyRef Name="ID_Users" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="LibraryDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Accounts" EntityType="Self.Account" />
           <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="Borrows" EntityType="Self.Borrow" />
           <EntitySet Name="Employees" EntityType="Self.Employee" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Users" EntityType="Self.User" />
-          <EntitySet Name="Borrows" EntityType="Self.Borrow" />
-          <AssociationSet Name="FK_Borrow_Book" Association="Self.FK_Borrow_Book">
-            <End Role="Book" EntitySet="Books" />
-            <End Role="Borrow" EntitySet="Borrows" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Borrow_Employee" Association="Self.FK_Borrow_Employee">
-            <End Role="Employee" EntitySet="Employees" />
-            <End Role="Borrow" EntitySet="Borrows" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Borrow_Users" Association="Self.FK_Borrow_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="Borrow" EntitySet="Borrows" />
-          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -321,7 +205,6 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
           <EntitySetMapping Name="Accounts">
             <EntityTypeMapping TypeName="LibraryDBModel.Account">
               <MappingFragment StoreEntitySet="Account">
-                <ScalarProperty Name="PathImage" ColumnName="PathImage" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="ID_Users" ColumnName="ID Users" />
@@ -330,6 +213,7 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
                 <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="PathImage" ColumnName="PathImage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -347,6 +231,19 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
                 <ScalarProperty Name="PathImage" ColumnName="PathImage" />
                 <ScalarProperty Name="Quantily" ColumnName="Quantily" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Borrows">
+            <EntityTypeMapping TypeName="LibraryDBModel.Borrow">
+              <MappingFragment StoreEntitySet="Borrow">
+                <ScalarProperty Name="ID_Borrow" ColumnName="ID Borrow" />
+                <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
+                <ScalarProperty Name="ID_User" ColumnName="ID User" />
+                <ScalarProperty Name="ID_Employee" ColumnName="ID Employee" />
+                <ScalarProperty Name="Borrow_Date" ColumnName="Borrow Date" />
+                <ScalarProperty Name="Pay_Day" ColumnName="Pay Day" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -392,18 +289,6 @@ warning 6002: The table/view 'LibraryDB.dbo.Borrow' does not have a primary key 
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
-                <ScalarProperty Name="Notes" ColumnName="Notes" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Borrows">
-            <EntityTypeMapping TypeName="LibraryDBModel.Borrow">
-              <MappingFragment StoreEntitySet="Borrow">
-                <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
-                <ScalarProperty Name="ID_Users" ColumnName="ID Users" />
-                <ScalarProperty Name="ID_Employee" ColumnName="ID Employee" />
-                <ScalarProperty Name="Borrow_Date" ColumnName="Borrow Date" />
-                <ScalarProperty Name="Pay_Day" ColumnName="Pay Day" />
                 <ScalarProperty Name="Notes" ColumnName="Notes" />
               </MappingFragment>
             </EntityTypeMapping>

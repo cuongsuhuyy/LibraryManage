@@ -1,0 +1,85 @@
+﻿@using LibraryManage.Models
+@{
+    ViewBag.Title = "HireBook";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="javascript:void(0);" onclick="history.go(-1);"><h2>HireBook</h2></a>
+
+@using (Html.BeginForm("UpdateToDB", "Borrow"))
+{
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">ID Book</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="ID_Book" placeholder="ID Book" value="@Model.ID_Book" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">ID User</label>
+            <div class="col-sm-10">
+                @if (this.Session["Type"].Equals("User"))
+                {
+                    <input readonly class="form-control" type="text" name="Iduser" placeholder="ID User" value="@this.Session["ID"]" />
+                }
+                else
+                {
+                    <input required class="form-control" type="text" name="Iduser" placeholder="ID User" />
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">ID Employee</label>
+            <div class="col-sm-10">
+                @if (this.Session["Type"].Equals("Employee") || this.Session["Type"].Equals("Manager"))
+                {
+                    <input readonly class="form-control" type="text" name="Idemployee" placeholder="ID Employee" value="@this.Session["ID"]" />
+                }
+                else
+                {
+                    <input readonly class="form-control" type="text" name="Idemployee" placeholder="ID Employee" />
+                }
+
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Notes</label>
+            <div class="col-sm-10">
+                @if (this.Session["Type"].Equals("User"))
+                {
+                    <input readonly class="form-control" type="text" name="Notes" placeholder="Notes" value="Wait verify" />
+                }
+                else
+                {
+                    <input class="form-control" type="text" name="Notes" placeholder="Notes" />
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Borrow Date</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="date" name="Borrowdate" placeholder="Borrow Date" />
+            </div>
+        </div>
+
+        <div style="display: none;" class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Pay Day</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Payday" placeholder="Pay Day" value="@DateTime.Now" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" class="col-md-offset-4 col-md-6 btn btn-primary" value="submit" />
+    </div>
+}
+

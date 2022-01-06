@@ -8,7 +8,7 @@ using System.Web.Routing;
 using LibraryManage.Models;
 
 namespace LibraryManage
-{
+{    
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

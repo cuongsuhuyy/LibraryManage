@@ -27,9 +27,9 @@ namespace LibraryManage.DatabaseAccess
     
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Borrow> Borrows { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Borrow> Borrows { get; set; }
     }
 }

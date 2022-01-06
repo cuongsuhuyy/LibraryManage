@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "BookViewUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>BookViewUser</h2>
+
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
+        </tr>
+    </thead>
+    @for(int i = 0; i < Model.Count; i++)
+    {
+        <tbody>
+            <tr>
+                @using (Html.BeginForm("EDIT", "Books"))
+                {
+                    if (i < Model.Count)
+                    {
+                        <td scope="col">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="center-block" alt="Book picture" style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + Model[i].PathImage)" />
+                                </div>
+                                <div class="col-md-12 text-center" style="max-height: 40px; height: 40px;">
+                                    @Model[i].Name
+                                </div>
+                                <div class="col-md-12">
+                                    @Html.ActionLink("DETAILS", "Detail", new { IdBook = Model[i].ID_Book }, new { @type = "button", @class = "btn btn-info", @style = "width: 100%" })
+                                </div>
+                            </div>
+                        </td>
+                        i++;
+                    }
+                    if (i < Model.Count)
+                    {
+                        <td scope="col">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="center-block" alt="Book picture" style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + Model[i].PathImage)" />
+                                </div>
+                                <div class="col-md-12 text-center" style="max-height: 40px; height: 40px;">
+                                    @Model[i].Name
+                                </div>
+                                <div class="col-md-12">
+                                    @Html.ActionLink("DETAILS", "Detail", new { IdBook = Model[i].ID_Book }, new { @type = "button", @class = "btn btn-info", @style = "width: 100%" })
+                                </div>
+                            </div>
+                        </td>
+                        i++;
+                    }
+                    if (i < Model.Count)
+                    {
+                        <td scope="col">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="center-block" alt="Book picture" style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + Model[i].PathImage)" />
+                                </div>
+                                <div class="col-md-12 text-center" style="max-height: 40px; height: 40px;">
+                                    @Model[i].Name
+                                </div>
+                                <div class="col-md-12">
+                                    @Html.ActionLink("DETAILS", "Detail", new { IdBook = Model[i].ID_Book }, new { @type = "button", @class = "btn btn-info", @style = "width: 100%" })
+                                </div>
+                            </div>
+                        </td>
+                        i++;
+                    }
+                    if (i < Model.Count)
+                    {
+                        <td scope="col">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <img class="center-block" alt="Book picture" style="width: 100px; height: 100px;" src="@("https://localhost:44335/" + Model[i].PathImage)" />
+                                </div>
+                                <div class="col-md-12 text-center" style="max-height: 40px; height: 40px;">
+                                    @Model[i].Name
+                                </div>
+                                <div class="col-md-12">
+                                    @Html.ActionLink("DETAILS", "Detail", new { IdBook = Model[i].ID_Book }, new { @type = "button", @class = "btn btn-info", @style = "width: 100%" })
+                                </div>
+                            </div>
+                        </td>
+                    }
+                }
+            </tr>
+        </tbody>
+    } 
+</table>

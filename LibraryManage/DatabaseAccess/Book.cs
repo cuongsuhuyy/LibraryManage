@@ -14,12 +14,6 @@ namespace LibraryManage.DatabaseAccess
     
     public partial class Book
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Book()
-        {
-            this.Borrows = new HashSet<Borrow>();
-        }
-    
         public string ID_Book { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -31,8 +25,5 @@ namespace LibraryManage.DatabaseAccess
         public string Notes { get; set; }
         public string PathImage { get; set; }
         public Nullable<int> Quantily { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Borrow> Borrows { get; set; }
     }
 }

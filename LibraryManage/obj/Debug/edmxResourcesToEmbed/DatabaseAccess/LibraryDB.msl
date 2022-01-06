@@ -4,7 +4,6 @@
     <EntitySetMapping Name="Accounts">
       <EntityTypeMapping TypeName="LibraryDBModel.Account">
         <MappingFragment StoreEntitySet="Account">
-          <ScalarProperty Name="PathImage" ColumnName="PathImage" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="ID_Users" ColumnName="ID Users" />
@@ -13,6 +12,7 @@
           <ScalarProperty Name="Date_of_Birth" ColumnName="Date of Birth" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
+          <ScalarProperty Name="PathImage" ColumnName="PathImage" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -30,6 +30,19 @@
           <ScalarProperty Name="Notes" ColumnName="Notes" />
           <ScalarProperty Name="PathImage" ColumnName="PathImage" />
           <ScalarProperty Name="Quantily" ColumnName="Quantily" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Borrows">
+      <EntityTypeMapping TypeName="LibraryDBModel.Borrow">
+        <MappingFragment StoreEntitySet="Borrow">
+          <ScalarProperty Name="ID_Borrow" ColumnName="ID Borrow" />
+          <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
+          <ScalarProperty Name="ID_User" ColumnName="ID User" />
+          <ScalarProperty Name="ID_Employee" ColumnName="ID Employee" />
+          <ScalarProperty Name="Borrow_Date" ColumnName="Borrow Date" />
+          <ScalarProperty Name="Pay_Day" ColumnName="Pay Day" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,18 +88,6 @@
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="Phone_Number" ColumnName="Phone Number" />
-          <ScalarProperty Name="Notes" ColumnName="Notes" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Borrows">
-      <EntityTypeMapping TypeName="LibraryDBModel.Borrow">
-        <MappingFragment StoreEntitySet="Borrow">
-          <ScalarProperty Name="ID_Book" ColumnName="ID Book" />
-          <ScalarProperty Name="ID_Users" ColumnName="ID Users" />
-          <ScalarProperty Name="ID_Employee" ColumnName="ID Employee" />
-          <ScalarProperty Name="Borrow_Date" ColumnName="Borrow Date" />
-          <ScalarProperty Name="Pay_Day" ColumnName="Pay Day" />
           <ScalarProperty Name="Notes" ColumnName="Notes" />
         </MappingFragment>
       </EntityTypeMapping>

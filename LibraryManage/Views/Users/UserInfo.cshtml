@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewBag.Title = "UserInfo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<a href="javascript:void(0);" onclick="history.go(-1);"><h2>UserInfo</h2></a>
+
+@using (Html.BeginForm("UpdateUser", "Users"))
+{
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">ID_User</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Iduser" placeholder="ID_User" value="@Model.ID_User" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Type</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Type" placeholder="Type" value="@Model.Type" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">First Name</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Firstname" placeholder="First Name" value="@Model.First_Name" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Last Name</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Lastname" placeholder="Last Name" value="@Model.Last_Name" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Date of Birth</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Dateofbirth" placeholder="Date of Birth" value="@Model.Date_of_Birth" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Notes</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Notes" placeholder="Notes" value="@Model.Notes" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Sex</label>
+            <div class="col-sm-10">
+                @Html.DropDownList("Sex", new List<SelectListItem>
+                    {
+                        new SelectListItem{ Text="Male", Value = "Male"},
+                        new SelectListItem{ Text="Female", Value = "Female" },
+                        new SelectListItem { Text = "Other", Value = "Other" },
+                    }, new { @class = "width100 btn btn-secondary" })
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Faculty</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Faculty" placeholder="Faculty" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Production Date</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Productiondate" placeholder="Production Date" value="@DateTime.Now" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Expiration Date</label>
+            <div class="col-sm-10">
+                <input readonly class="form-control" type="text" name="Expirationdate" placeholder="Expiration Date" value="@DateTime.Now.AddDays(365)" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="email" name="Email" placeholder="Email" />
+            </div>
+        </div>
+
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Address</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="Address" placeholder="Address" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 form-group row">
+            <label class="col-sm-2 col-form-label">Phone Number</label>
+            <div class="col-sm-10">
+                <input required class="form-control" type="number" name="Phonenumber" placeholder="Phone Number" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <input type="submit" class="col-md-offset-4 col-md-6 btn btn-primary" value="submit" />
+    </div>
+}
+

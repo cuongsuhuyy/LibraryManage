@@ -131,6 +131,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\BorrowController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SearchBookController.cs" />
@@ -172,6 +173,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\Common.cs" />
     <Compile Include="Models\DBAccess.cs" />
     <Compile Include="Models\UserProfile.cs" />
     <Compile Include="Models\UsersModel.cs" />
@@ -3174,9 +3176,15 @@
     <Content Include="Views\Books\BookEdit.cshtml" />
     <Content Include="Views\Books\BookDetail.cshtml" />
     <Content Include="Views\Books\BookCreate.cshtml" />
-    <Content Include="Views\Users\UserAccount.cshtml" />
+    <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Users\UserCreate.cshtml" />
     <Content Include="Views\Users\UserEdit.cshtml" />
+    <Content Include="Views\Books\BookViewUser.cshtml" />
+    <Content Include="Views\Users\EmlInfo.cshtml" />
+    <Content Include="Views\Users\UserInfo.cshtml" />
+    <Content Include="Views\Borrow\HireBook.cshtml" />
+    <Content Include="Views\Borrow\VerifyHireBook.cshtml" />
+    <Content Include="Views\Borrow\ReturnBook.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

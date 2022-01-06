@@ -6,3 +6,136 @@
 
 <h2>Register</h2>
 
+<div class="container">
+    @using (Html.BeginForm("RegisterToDB", "RegisterLogin"))
+    {
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">ID User</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="text" name="Iduser" placeholder="ID User" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Sex</label>
+                <div class="col-sm-10">
+                    @Html.DropDownList("Sex", new List<SelectListItem>
+                    {
+                        new SelectListItem{ Text="Male", Value = "Male"},
+                        new SelectListItem{ Text="Female", Value = "Female" },
+                        new SelectListItem { Text = "Other", Value = "Other" },
+                    }, new { @class = "width100 btn btn-secondary" })
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">First Name</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="text" name="Firstname" placeholder="First Name" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Last Name</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="text" name="Lastname" placeholder="Last Name" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Password</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="password" name="Password" placeholder="Password" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Confirm Password</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="password" name="Confirmpassword" placeholder="Confirm Password" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Date of Birth</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="date" name="Dateofbirth" placeholder="Date of Birth" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Type" placeholder="Type" value="User" readonly />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Faculty</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Faculty" placeholder="Faculty" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="text" name="Email" placeholder="Email" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Production Date</label>
+                <div class="col-sm-10">
+                    <input id="productionDate" readonly required class="form-control" type="text" name="Productiondate" placeholder="Production Date" value="@DateTime.Now" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Phone Number</label>
+                <div class="col-sm-10">
+                    <input required class="form-control" type="number" name="Phonenumber" placeholder="Phone Number" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Address</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Address" placeholder="Address" />
+                </div>
+            </div>
+
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Path Image</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Pathimage" placeholder="Path Image" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group row">
+                <label class="col-sm-2 col-form-label">Notes</label>
+                <div class="col-sm-10">
+                    <input class="form-control" type="text" name="Notes" placeholder="Notes" />
+                </div>
+            </div>            
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Register" />
+    }
+</div>
+
