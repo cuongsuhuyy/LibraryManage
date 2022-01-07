@@ -42,7 +42,7 @@ namespace LibraryManage.Controllers
 
             LibraryDBEntities db = new LibraryDBEntities();
 
-            var checkIfOverTurn = db.Borrows.Where(x => x.ID_User == Iduser).Count();
+            var checkIfOverTurn = db.Borrows.Where(x => x.ID_User == Iduser).Where(x => x.Notes == "Hired").Count();
             if(checkIfOverTurn > 5)
             {
                 return Content("You have exceeded the allowed number of times");
@@ -164,21 +164,23 @@ namespace LibraryManage.Controllers
         public ActionResult UpdateReturnBook (string Idborrow, DateTime Payday)
         {
             LibraryDBEntities db = new LibraryDBEntities();
-            var delete = db.Borrows.Single(x => x.ID_Borrow == Idborrow);
+            var returnBook = db.Borrows.Single(x => x.ID_Borrow == Idborrow);
             var retBook = db.Borrows.Where(x => x.Notes == "Hired");
 
             
             var compare = DateTime.Now.Subtract(Payday);
-            
-            if(compare.Days > 0)
+
+            returnBook.Notes = "Returned";
+
+            db.Entry(returnBook);
+            db.SaveChanges();
+
+            if (compare.Days > 0)
             {
                 var temp = compare.Days;
                 var price = temp * 5000;
                 return Content("Late: " + temp + " days, Pay " + price + "VND");
             }
-
-            db.Borrows.Remove(delete);
-            db.SaveChanges();
 
             return View("ReturnBook", retBook);
         }

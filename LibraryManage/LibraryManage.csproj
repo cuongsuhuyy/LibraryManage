@@ -132,10 +132,12 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\BorrowController.cs" />
+    <Compile Include="Controllers\ExportController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RegisterLoginController.cs" />
     <Compile Include="Controllers\SearchBookController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="CsvExport.cs" />
     <Compile Include="DatabaseAccess\Account.cs">
       <DependentUpon>LibraryDB.tt</DependentUpon>
     </Compile>
@@ -3185,6 +3187,7 @@
     <Content Include="Views\Borrow\HireBook.cshtml" />
     <Content Include="Views\Borrow\VerifyHireBook.cshtml" />
     <Content Include="Views\Borrow\ReturnBook.cshtml" />
+    <Content Include="Views\Export\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,7 +37,7 @@
                     {
                         <li>@Html.ActionLink("OUR BOOK", "Index", "Books")</li>
                     }
-                    <li>@Html.ActionLink("CONTACT US", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("CONTACT US", "Contact", "Home")</li>*@
                     @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Manager") || this.Session["Type"].Equals("Employee")))
                     {
                         <li>@Html.ActionLink("USERS MANAGER", "UserAccount", "Users")</li>
@@ -45,11 +45,13 @@
                     @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Employee") || this.Session["Type"].Equals("Manager")))
                     {
                         <li>@Html.ActionLink("WAIT VERIFY", "Verify", "Borrow")</li>
+                        <li>@Html.ActionLink("RETURN BOOK", "ReturnBook", "Borrow")</li>
+                        <li>@Html.ActionLink("EXPORT", "Index", "Export")</li>
                     }
-                    @if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Employee") || this.Session["Type"].Equals("Manager")))
+                    @*@if (this.Session["UserProfile"] != "" && (this.Session["Type"].Equals("Employee") || this.Session["Type"].Equals("Manager")))
                     {
                         <li>@Html.ActionLink("RETURN BOOK", "ReturnBook", "Borrow")</li>
-                    }
+                    }*@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (this.Session["UserProfile"] != "")
